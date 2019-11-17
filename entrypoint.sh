@@ -1,4 +1,4 @@
-#/bin/sh
+#!/bin/sh
 
 if [ -f /etc/vm_hostname ]; then
 host_name=$(cat /etc/vm_hostname)
@@ -12,11 +12,11 @@ verify_key="`$request_url`"
 echo $verify_key
 fi
 
-if [ $VKEY ]; then
-verify_key=$VKEY
+if [ -n "$verify_key" ]; then
+VKEY=$verify_key
 fi
 
-echo /npc/npc -server=${SERVERIP} -vkey=${verify_key} -type=${TYPE}
+echo /npc/npc -server=${SERVERIP} -vkey=${VKEY} -type=${TYPE}
 if [ -f /npc/npc ]; then
-/npc/npc -server=${SERVERIP} -vkey=${verify_key} -type=${TYPE}
+exec /npc/npc -server=${SERVERIP} -vkey=${VKEY} -type=${TYPE} $@
 fi
