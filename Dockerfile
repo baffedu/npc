@@ -17,7 +17,7 @@ COPY ./entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 ENV SERVERIP 127.0.0.1:8284
-ENV VKEY 123
 ENV TYPE kcp
+ENV VKEY 123
 
 ENTRYPOINT ["/entrypoint.sh"]
