@@ -2,7 +2,7 @@ FROM alpine:3.8
 MAINTAINER oldiy <oldiy@163.com>
 
 WORKDIR /
-ENV NPC_VERSION 0.26.5
+ENV NPC_VERSION 0.26.7
 
 RUN set -x && \
         wget --no-check-certificate https://github.com/ehang-io/nps/releases/download/v${NPC_VERSION}/linux_amd64_client.tar.gz && \
